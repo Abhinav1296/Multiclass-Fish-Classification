@@ -1,0 +1,172 @@
+# 🐟 Multiclass Fish Image Classification
+
+An AI-powered **deep learning** system for **classifying multiple fish species** from images, with a fully interactive **Streamlit web application** for real-time predictions.
+
+---
+
+## 📌 Project Overview
+
+This project uses **Deep Learning (ResNet50 Transfer Learning)** to **classify fish into 11 categories**.  
+It includes:
+
+- **Data preprocessing** with resizing & normalization
+- **Model training & fine-tuning** (ResNet50, CNN, EfficientNet-B0 tested)
+- **Evaluation** using accuracy, precision, recall, F1-score, and confusion matrices
+- **Deployment** via Streamlit with a clean, professional user interface
+- **Real-time predictions** with confidence scores
+
+---
+
+## 🧾 Skills & Tech Stack
+
+- **Deep Learning**
+- **Python**
+- **PyTorch**
+- **Streamlit**
+- **Data Preprocessing & Augmentation**
+- **Transfer Learning**
+- **Model Evaluation & Visualization**
+- **UI/UX Design for Streamlit Apps**
+- **Model Deployment**
+
+---
+
+## 📊 Dataset
+
+- Multi-class fish image dataset.
+- Each class stored in a **separate folder**.
+- **11 categories**:
+
+```
+animal fish  
+animal fish bass  
+fish sea_food black_sea_sprat  
+fish sea_food gilt_head_bream  
+fish sea_food horse_mackerel  
+fish sea_food red_mullet  
+fish sea_food red_sea_bream  
+fish sea_food sea_bass  
+fish sea_food shrimp  
+fish sea_food striped_red_mullet  
+fish sea_food trout
+```
+
+- Loaded using **`torchvision.datasets.ImageFolder`** for training/validation/test splits.
+
+---
+
+## 🏗️ Approach
+
+### 1. **Data Preprocessing**
+- Resize images to **224x224** (ResNet/EfficientNet) or **150x150** (Simple CNN)
+- Normalize pixel values to ImageNet mean & std
+- Apply data augmentation: horizontal flip, rotation, color jitter
+
+### 2. **Model Training**
+- **Simple CNN**: baseline
+- **ResNet50 (Transfer Learning)**: best performer
+- **EfficientNet-B0 (Transfer Learning)**: balanced accuracy vs speed
+- Freeze backbone initially, only train classification head, then fine-tune
+
+### 3. **Evaluation**
+- Metrics: Accuracy, Precision, Recall, F1-score, Confusion Matrix
+- ResNet50 achieved **~99% accuracy** & best class recall
+
+### 4. **Deployment**
+- Interactive **Streamlit app**
+- Upload an image → real-time prediction with confidence scores
+- Probability bar chart and Top-3 predictions displayed
+
+---
+
+## 🚀 Getting Started
+
+### **1. Clone the Repository**
+```
+git clone https://github.com/yourusername/fish-classification.git
+cd fish-classification
+```
+
+### **2. Install Dependencies**
+```
+pip install -r requirements.txt
+```
+
+### **3. Add Model Weights**
+Place your trained ResNet50 model in the project root:
+```
+resnet50_best.pth
+```
+
+### **4. Run the Streamlit App**
+```
+streamlit run app.py
+```
+
+---
+
+## 🖥️ Usage
+
+1. Launch the app.
+2. Upload a fish image (.jpg/.jpeg/.png).
+3. Model analyzes the image and:
+   - Predicts fish category (on the **right side of the image** in UI)
+   - Displays confidence percentage
+   - Shows confidence bar chart for all classes
+   - Displays Top-3 predictions with progress bars
+
+---
+
+## 📈 Model Performance (Test Set)
+
+| Model         | Accuracy | Minority Class Recall | Training Time |
+|--------------|----------|-----------------------|---------------|
+| Simple CNN   | ~99%     | Poor                  | Fast          |
+| ResNet50     | **~99%** | **Best**               | Medium        |
+| EfficientNet | ~99%     | Balanced               | Medium        |
+
+---
+
+## 📷 Streamlit UI Features
+
+- Gradient background with professional typography
+- **Two-column layout**: image (left) & prediction (right)
+- Styled prediction card
+- Full-width confidence score chart
+- Centered footer:
+  ```
+  Model Used: ResNet50 | Developed by: Abhinav Viswanathula ❤️
+  ```
+
+---
+
+## 📌 Business Use Cases
+
+- **Seafood Quality Checks**: Prevent mislabeling & fraud
+- **Fish Market Inventory**: Quick categorization during packaging
+- **Marine Research**: Automated species identification
+
+---
+
+## 📂 Project Structure
+
+```
+.
+├── app.py                  # Streamlit app script
+├── resnet50_best.pth       # Trained model weights (add separately)
+├── requirements.txt        # Dependencies list
+├── README.md               # Project documentation
+└── data/                   # Fish image dataset (train/val/test folders)
+```
+
+---
+
+## 👨‍💻 Developer
+
+**Abhinav Viswanathula ❤️**
+
+---
+
+## 📜 License
+This project is licensed for academic and demonstration purposes. Please credit the author if reused.
+```
