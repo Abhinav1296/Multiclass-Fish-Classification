@@ -83,7 +83,7 @@ fish sea_food trout
 
 ### **1. Clone the Repository**
 ```
-git clone https://github.com/yourusername/fish-classification.git
+git clone https://github.com/Abhinav1296/Multiclass-Fish-Classification.git
 cd fish-classification
 ```
 
@@ -169,4 +169,5 @@ streamlit run app.py
 
 ## 📜 License
 This project is licensed for academic and demonstration purposes. Please credit the author if reused.
+
 ```
